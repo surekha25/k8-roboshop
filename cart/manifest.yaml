@@ -39,7 +39,7 @@ spec:
           image: surekha25/cart:v1
           imagePullPolicy: Always 
           envFrom:
-            - ConfigMapRef:
+            - configMapRef:
                 name: cart
         
           ports:
