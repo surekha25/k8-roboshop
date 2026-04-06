@@ -40,8 +40,23 @@ spec:
           imagePullPolicy: Always 
           envFrom:
             - configMapRef:
-                name: shipping        
-         
+                name: shipping
+        
+          ports:
+          - name: liveness-port
+            containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: liveness-port
+            failureThreshold: 1
+            periodSeconds: 15
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: liveness-port
+            failureThreshold: 1
+            periodSeconds: 15
 ---
 
 apiVersion: v1
