@@ -50,13 +50,13 @@ spec:
               path: /health
               port: liveness-port
             failureThreshold: 1
-            periodSeconds: 15
+            periodSeconds: 40
           livenessProbe:
             httpGet:
               path: /health
               port: liveness-port
             failureThreshold: 1
-            periodSeconds: 15
+            periodSeconds: 40
 ---
 
 apiVersion: v1
